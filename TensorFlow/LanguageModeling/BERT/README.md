@@ -2,15 +2,15 @@
 
 ## Exporting NGC BERT Checkpoint to SavedModel
 
-1. Download BERT Checkpoint from NGC Model Registry, download vocab file, and create input file for inference
+1. Build trtserver and bert client Docker images
+```
+bash scripts/docker/build.sh
+```
+
+2. Download BERT Checkpoint from NGC Model Registry, download vocab file, and create input file for inference
 ```
 # Edit the model/checkpoints to download in this script
 bash ngc/download_bert.sh
-```
-
-2. Build trtserver and bert client Docker images
-```
-bash scripts/docker/build.sh
 ```
 
 3. Export model to SavedModel format

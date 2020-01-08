@@ -1,6 +1,6 @@
 #!/bin/bash
 # DeepLearningExamples/TensorFlow/LanguageModeling/BERT
-BERT_DIR=".."
+BERT_DIR="."
 CONFIG_DIR="${BERT_DIR}/config.qa"
 mkdir -p ${BERT_DIR}/data/finetuned_model_fp16
 wget -nc -q --show-progress -O ${BERT_DIR}/data/finetuned_model_fp16/bert_tf_v2_large_fp16_384.zip \
@@ -16,7 +16,7 @@ mkdir -p ${CONFIG_DIR}
 wget -nc https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-vocab.txt \
         -O ${CONFIG_DIR}/vocab.txt
 
-cat >> ${CONFIG_DIR}/bert_config.json << EOF
+cat > ${CONFIG_DIR}/bert_config.json << EOF
 {
   "attention_probs_dropout_prob": 0.1,
   "hidden_act": "gelu",
@@ -32,7 +32,7 @@ cat >> ${CONFIG_DIR}/bert_config.json << EOF
 }
 EOF
 
-cat >> ${CONFIG_DIR}/input.json << EOF
+cat > ${CONFIG_DIR}/input.json << EOF
 {"data": 
  [
      {"title": "Project Apollo",
